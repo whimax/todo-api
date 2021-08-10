@@ -93,8 +93,8 @@ func (r *TodoItemPostgres) Update(userId, itemId int, input todo.UpdateItemInput
 	}
 
 	setQuery := strings.Join(setValues, ", ")
-	query := fmt.Sprintf(`UPDATE %s ti SET %s FROM %s li, %s ul " +
-						WHERE ti.id = li.item_id AND li.list_id = ul.list_id AND ul.user_id=$%d AND ti.id = $%d`,
+	query := fmt.Sprintf(`UPDATE %s ti SET %s FROM %s li, %s ul 
+								WHERE ti.id = li.item_id AND li.list_id = ul.list_id AND ul.user_id=$%d AND ti.id = $%d`,
 		todoItemsTable,
 		setQuery,
 		listsItemsTable,
